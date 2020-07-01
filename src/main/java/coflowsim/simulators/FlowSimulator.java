@@ -79,7 +79,7 @@ public class FlowSimulator extends Simulator {
       if (sharingAlgo == SHARING_ALGO.FAIR) {
         numFlowsToAdd = Constants.MAX_CONCURRENT_FLOWS;
       }
-      numFlowsToAdd = rt.flows.size();
+//      numFlowsToAdd = rt.flows.size();
 
       int added = 0;
       for (Flow f : rt.flows) {
