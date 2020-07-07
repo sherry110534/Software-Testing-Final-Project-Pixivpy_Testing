@@ -79,27 +79,6 @@ class FlowSimulatorTest {
     }
 
     @Test
-    void afterJobAdmission() {
-    }
-
-    @Test
-    void afterJobDeparture() {
-    }
-
-    @Test
-    void printStats() {
-    }
-
-    @Test
-    void incNumActiveTasks() {
-
-    }
-
-    @Test
-    void decNumActiveTasks() {
-    }
-
-    @Test
     void uponJobAdmission() {
 
         //nlpl.simulate(simulationTimestep);
@@ -169,6 +148,12 @@ class FlowSimulatorTest {
 
     @Test
     void removeDeadJob() {
-
+        nlpl = new FlowSimulator(sharingAlgo, traceProducer2, isOffline, considerDeadline,
+                deadlineMultRandomFactor);
+        Job j = new Job("JOB-1", 1);
+        nlpl.activeJobs.put("JOB-1", j);
+        assertEquals(1, nlpl.activeJobs.size());
+        nlpl.removeDeadJob(j);
+        assertEquals(0, nlpl.activeJobs.size());
     }
 }

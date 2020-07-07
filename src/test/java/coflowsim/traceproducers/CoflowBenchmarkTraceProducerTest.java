@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CoflowBenchmarkTraceProducerTest {
 
-    CoflowBenchmarkTraceProducer cbtp = new CoflowBenchmarkTraceProducer("C:\\Users\\DU JIN\\Desktop\\課程資料\\code\\coflowsim\\src\\test\\resources\\traceProducerTestCase.txt");
+    CoflowBenchmarkTraceProducer cbtp = new CoflowBenchmarkTraceProducer("src/test/resources/traceProducerTestCase.txt");
 
     @Test
     void prepareTrace() {
