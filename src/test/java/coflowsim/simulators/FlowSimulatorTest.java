@@ -1,9 +1,6 @@
 package coflowsim.simulators;
 
-import coflowsim.datastructures.Flow;
-import coflowsim.datastructures.Job;
-import coflowsim.datastructures.ReduceTask;
-import coflowsim.datastructures.Task;
+import coflowsim.datastructures.*;
 import coflowsim.utils.Constants;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,19 +45,37 @@ class FlowSimulatorTest {
 
     @Test
     void initialize() {
-
+        nlpl = new FlowSimulator(sharingAlgo, traceProducer1, isOffline, considerDeadline,
+                deadlineMultRandomFactor);
+        traceProducer1.jobs.sortByStartTime();
+        assertEquals(traceProducer1.jobs, nlpl.jobs);
     }
 
     @Test
     void ignoreThisJob() {
+        nlpl = new FlowSimulator(sharingAlgo, traceProducer1, isOffline, considerDeadline,
+                deadlineMultRandomFactor);
+        Job test_job = new Job("test_job", 1);
+        assertEquals(true, nlpl.ignoreThisJob(test_job));
+        test_job.numMappers=1;
+        assertEquals(false, nlpl.ignoreThisJob(test_job));
     }
 
     @Test
     void admitThisJob() {
+        nlpl = new FlowSimulator(sharingAlgo, traceProducer1, isOffline, considerDeadline,
+                deadlineMultRandomFactor);
+        Job test_job = new Job("test_job", 1);
+        assertEquals(true, nlpl.admitThisJob(test_job));
+
     }
 
     @Test
     void simulate() {
+        int simulationTimestep = 10 * Constants.SIMULATION_SECOND_MILLIS;
+        nlpl = new FlowSimulator(sharingAlgo, traceProducer1, isOffline, considerDeadline,
+                deadlineMultRandomFactor);
+        nlpl.simulate(simulationTimestep);
     }
 
     @Test
@@ -77,6 +92,7 @@ class FlowSimulatorTest {
 
     @Test
     void incNumActiveTasks() {
+
     }
 
     @Test
