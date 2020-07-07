@@ -3,6 +3,8 @@ package coflowsim.datastructures;
 import coflowsim.utils.Constants;
 import org.junit.jupiter.api.Test;
 
+import java.util.Vector;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReduceTaskTest {
@@ -36,6 +38,8 @@ class ReduceTaskTest {
 
     @Test
     void cleanupTask() {
+        j.tasksInRacks = (Vector<ReduceTask>[]) new Vector[10];
+        j.tasksInRacks[rt.taskID] = new Vector<ReduceTask>();
         rt.cleanupTask(10);
         assertEquals(0.0, rt.shuffleBytesLeft);
     }
