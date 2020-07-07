@@ -72,12 +72,13 @@ class FlowSimulatorTest {
 
     @Test
     void simulate() {
-        int simulationTimestep = 10 * Constants.SIMULATION_SECOND_MILLIS;
+        int simulationTimestep = Constants.SIMULATION_SECOND_MILLIS;
         nlpl = new FlowSimulator(sharingAlgo, traceProducer1, isOffline, considerDeadline,
                 deadlineMultRandomFactor);
         nlpl.simulate(simulationTimestep);
+        assertEquals(0, nlpl.activeJobs.size());
     }
-
+    
     @Test
     void uponJobAdmission() {
 
