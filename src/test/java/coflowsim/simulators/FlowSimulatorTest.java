@@ -32,7 +32,7 @@ class FlowSimulatorTest {
 
     @BeforeEach
     void setUp() {
-        String pathToCoflowBenchmarkTraceFile1 = "C:\\Users\\David Hwang\\Desktop\\碩一course\\Software Testing\\Software-Testing-Final-Project-CoflowSimTesting\\src\\test\\resources\\FB2010-1Hr-150-0.txt";
+        String pathToCoflowBenchmarkTraceFile1 = "src/test/resources/FB2010-1Hr-150-0.txt";
         traceProducer1 = new CoflowBenchmarkTraceProducer(pathToCoflowBenchmarkTraceFile1);
         traceProducer1.prepareTrace();
 
@@ -126,9 +126,9 @@ class FlowSimulatorTest {
             for(int j = 0 ; j < nlpl.flowsInRacks[i].size(); j++){
                 rack_flow_total_bytes[i] += nlpl.flowsInRacks[i].elementAt(j).getFlowSize();
             }
-            System.out.print(nlpl.flowsInRacks[i].size()+" ");
+            //System.out.print(nlpl.flowsInRacks[i].size()+" ");
         }
-        System.out.print("\n\n");
+        //System.out.print("\n\n");
         int EPOCH_IN_MILLIS = simulationTimestep;
         double bytesPerTask = Constants.RACK_BYTES_PER_SEC * (1.0 * Constants.SIMULATION_QUANTA / Constants.SIMULATION_SECOND_MILLIS);
         for (long i = 0; i < EPOCH_IN_MILLIS; i += Constants.SIMULATION_QUANTA) {
@@ -143,9 +143,9 @@ class FlowSimulatorTest {
                 else {
                     assertEquals(rack_num_flow[j], nlpl.flowsInRacks[j].size());
                 }
-                System.out.print(nlpl.flowsInRacks[j].size()+" ");
+                //System.out.print(nlpl.flowsInRacks[j].size()+" ");
             }
-            System.out.print("\n");
+            //System.out.print("\n");
 
         }
 
