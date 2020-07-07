@@ -10,11 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="10">
-<<<<<<< HEAD
       <module name="coflowsim" target="10" />
-=======
-      <module name="coflowsim" target="1.8" />
->>>>>>> 1dc36efd702e28684a8fc3b6be9f57456ebf9e8b
     </bytecodeTargetLevel>
   </component>
 </project>
